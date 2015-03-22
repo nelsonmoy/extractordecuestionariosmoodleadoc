@@ -4,7 +4,7 @@
 	$file = "nombre_del_archivo.xml";
 	$XML = simplexml_load_file($file);
 	$questions = $XML->question;
-	$typeQuestion = "type";
+	$attr = "type";
 	header("Content-type: application/vnd.ms-word");
 	header("Content-Disposition: attachment;Filename=documento.doc");
 ?>
@@ -32,7 +32,7 @@
 		
 		<?php $numeroRespuesta = 1; ?>
 
-		<?php if ($q->attributes()->$typeQuestion == "multichoice"): ?>
+		<?php if ($q->attributes()->$attr == "multichoice"): ?>
 			
 			<h4><?=$numeroPregunta?>. <?=$q->questiontext->text?></h4>
 			<p>Respuestas:</p>
@@ -43,7 +43,7 @@
 			<?php $numeroPregunta++; ?>
 		<?php endif; ?>
 
-		<?php if ($q->attributes()->$typeQuestion == "truefalse"): ?>
+		<?php if ($q->attributes()->$attr == "truefalse"): ?>
 			<h4><?=$numeroPregunta?>. <?=$q->questiontext->text?></h4>
 			<p>Respuestas:</p>
 			<?php foreach ($q->answer as $a):?>
@@ -53,7 +53,7 @@
 			<?php $numeroPregunta++; ?>
 		<?php endif; ?>
 		
-		<?php if ($q->attributes()->$typeQuestion == "matching"): ?>
+		<?php if ($q->attributes()->$attr == "matching"): ?>
 			<div>
 				<h4 class="matching"><?=$numeroPregunta?>. <?=$q->questiontext->text?></h4>
 				<?php foreach ($q->subquestion as $sq):?>
