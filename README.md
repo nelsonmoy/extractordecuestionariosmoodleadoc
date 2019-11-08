@@ -1,4 +1,4 @@
-# Extractor de preguntas y respuetas de Cuestionarios en XML de Moodle en su version 1.9
+# Script de php que permite extraer información de los quizzes creados en Moodle en su versión 1.9, con sus respuestas a partir de un archivo en formato XML.
 
 Actualmente solo permite extraer preguntas de: multichoice, truefalse y matching.
 
